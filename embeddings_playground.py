@@ -38,6 +38,8 @@ openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 openai.proxy = os.getenv("PROXY")
+models = os.getenv("MODELS").split(",")
+prechecked_models = [models[0]]
 
 # FUNCTIONS
 #st.cache_data(persist=True)
@@ -135,16 +137,6 @@ distance = st.radio("Distance metric", distance_metric_options)
 
 # select models
 st.header("Select models")
-models = [
-    "embedding-ada-002",
-    "text-similarity-ada-001",
-    "text-similarity-babbage-001",
-    "text-similarity-curie-001",
-    "text-similarity-davinci-001",
-]
-prechecked_models = [
-    "embedding-ada-002"
-]
 model_values = [st.checkbox(model, key=model, value=(model in prechecked_models)) for model in models]
 
 # enter strings
