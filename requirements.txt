@@ -4,4 +4,4 @@ pandas
 scipy
 streamlit
 tenacity
-dotenv
+python-dotenv
